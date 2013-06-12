@@ -7,6 +7,7 @@ module Twitter
     module Calendar
       class Engine < ::Rails::Engine
         initializer 'twitter-bootstrap-calendar.setup_helpers' do |app|
+          ActionView::Base.send :include, BootstrapCalendarHelper
           app.config.to_prepare do
             ActionController::Base.send :helper, BootstrapCalendarHelper
           end
